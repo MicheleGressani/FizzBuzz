@@ -10,7 +10,7 @@ import java.util.*;
  *
  * @author utente
  */
-public class Fizzbuzz 
+public class Fizzbuzz
 {
 
     public static void main(String[] args) 
@@ -18,30 +18,49 @@ public class Fizzbuzz
         Scanner tastiera= new Scanner(System.in);
         
         int numero;
+        String FizzBuzz;
         
-        System.out.println("Inserisci numero: ");
+        System.out.print("Inserisci numero: ");
         numero=tastiera.nextInt();
         do
         {
             numero++;
             
-            if(numero%3==0 && numero%5==0)
+            String string;
+            string=""+numero;
+            
+                        
+            /*if(numero%3==0 && numero%5==0)
             {
-                System.out.println("FizzBuzz");
+                string="FizzBuzz";
+                System.out.println(string);
             }
             
             else if(numero%3==0 || numero%5==0)
             {
                 if(numero%3==0)
                 {
-                    System.out.println("Fizz");
+                    string="Fizz";
+                    System.out.println(string);
                 }
                 
                 else if(numero%5==0)
                 {
-                    System.out.println("Buzz");
+                    string="Buzz";
+                    System.out.println(string);
                 }
+            }*/
+            
+            if(string.contains("3"))
+            {
+                System.out.println("Fizz");
             }
+            
+            else if(string.contains("5"))
+            {
+                System.out.println("Buzz");
+            }
+            
             
             else
             {
