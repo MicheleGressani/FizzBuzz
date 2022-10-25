@@ -13,63 +13,79 @@ import java.util.*;
 public class Fizzbuzz
 {
 
-    public static void main(String[] args) 
+    public static void main(String[] args)
     {
-        Scanner tastiera= new Scanner(System.in);
-        
-        int numero;
-        String FizzBuzz;
-        
+        int number = askUserANumber();
+        String[] words = fizzBuzz(number);
+        printToScreen(words);
+    }
+
+    private static int askUserANumber() {
+        Scanner keyboard = new Scanner(System.in);
         System.out.print("Inserisci numero: ");
-        numero=tastiera.nextInt();
+        return keyboard.nextInt();
+    }
+
+    private static void printToScreen(String[] words) {
+        for (String word : words){
+            System.out.println(word);
+        }
+    }
+
+    private static String[] fizzBuzz(int numero) {
+        final int WORDS_MAX_COUNT = 100;
+        String[] words = new String[WORDS_MAX_COUNT];
+        int wordsCount = 0;
+
         do
         {
             numero++;
-            
-            String string;
-            string=""+numero;
-            
-                        
-            /*if(numero%3==0 && numero%5==0)
+
+            String word = intToString(numero);
+
+            if(numero %3==0 && numero %5==0)
             {
-                string="FizzBuzz";
-                System.out.println(string);
+                word="FizzBuzz";
+                words[wordsCount] = word;
             }
-            
-            else if(numero%3==0 || numero%5==0)
+
+            else if(numero %3==0 || numero %5==0)
             {
-                if(numero%3==0)
+                if(numero %3==0)
                 {
-                    string="Fizz";
-                    System.out.println(string);
+                    word="Fizz";
+                    words[wordsCount] = word;
                 }
-                
-                else if(numero%5==0)
+
+                else if(numero %5==0)
                 {
-                    string="Buzz";
-                    System.out.println(string);
+                    word="Buzz";
+                    words[wordsCount] = word;
                 }
-            }*/
-            
-            if(string.contains("3"))
-            {
-                System.out.println("Fizz");
             }
-            
-            else if(string.contains("5"))
+
+            if(word.contains("3"))
             {
-                System.out.println("Buzz");
+                words[wordsCount] = word;
             }
-            
-            
+
+            else if(word.contains("5"))
+            {
+                words[wordsCount] = word;
+            }
+
+
             else
             {
-                System.out.println(numero);
+                words[wordsCount] = word;
             }
-            
-        }while(numero<100);
-        
-        
-        
+
+            wordsCount++;
+        }while(numero < WORDS_MAX_COUNT);
+        return words;
+    }
+
+    private static String intToString(int numero) {
+        return Integer.toString(numero);
     }
 }
