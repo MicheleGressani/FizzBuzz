@@ -34,56 +34,48 @@ public class Fizzbuzz
 
     public static String[] fizzBuzz(int numero, int wordsMaxCount) {
         String[] words = new String[wordsMaxCount];
-        int wordsCount = 0;
 
-        do
-        {
+        for (int i = 0; i < wordsMaxCount; i++){
             numero++;
+            words[i] = fizzBuzzWord(numero);
+        }
+        return words;
+    }
 
-            String word = intToString(numero);
+    public static String fizzBuzzWord(int numero) {
+        String word = intToString(numero);
+        if(numero %3==0 && numero %5==0)
+        {
+            word="FizzBuzz";
+        }
 
-            if(numero %3==0 && numero %5==0)
-            {
-                word="FizzBuzz";
-                words[wordsCount] = word;
-            }
-
-            else if(numero %3==0 || numero %5==0)
-            {
-                if(numero %3==0)
-                {
-                    word="Fizz";
-                    words[wordsCount] = word;
-                }
-
-                else if(numero %5==0)
-                {
-                    word="Buzz";
-                    words[wordsCount] = word;
-                }
-            }
-
-            if(word.contains("3"))
+        else if(numero %3==0 || numero %5==0)
+        {
+            if(numero %3==0)
             {
                 word="Fizz";
-                words[wordsCount] = word;
+
             }
 
-            else if(word.contains("5"))
+            else if(numero %5==0)
             {
                 word="Buzz";
-                words[wordsCount] = word;
+
             }
+        }
 
+        if(word.contains("3"))
+        {
+            word="Fizz";
 
-            else
-            {
-                words[wordsCount] = word;
-            }
+        }
 
-            wordsCount++;
-        }while(numero < wordsMaxCount);
-        return words;
+        else if(word.contains("5"))
+        {
+            word="Buzz";
+
+        }
+        return word;
     }
 
     private static String intToString(int numero) {
