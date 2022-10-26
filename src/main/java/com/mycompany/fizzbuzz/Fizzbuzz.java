@@ -16,7 +16,7 @@ public class Fizzbuzz
     public static void main(String[] args)
     {
         int number = askUserANumber();
-        String[] words = fizzBuzz(number);
+        String[] words = fizzBuzz(number, 100);
         printToScreen(words);
     }
 
@@ -32,9 +32,8 @@ public class Fizzbuzz
         }
     }
 
-    private static String[] fizzBuzz(int numero) {
-        final int WORDS_MAX_COUNT = 100;
-        String[] words = new String[WORDS_MAX_COUNT];
+    public static String[] fizzBuzz(int numero, int wordsMaxCount) {
+        String[] words = new String[wordsMaxCount];
         int wordsCount = 0;
 
         do
@@ -81,7 +80,7 @@ public class Fizzbuzz
             }
 
             wordsCount++;
-        }while(numero < WORDS_MAX_COUNT);
+        }while(numero < wordsMaxCount);
         return words;
     }
 
