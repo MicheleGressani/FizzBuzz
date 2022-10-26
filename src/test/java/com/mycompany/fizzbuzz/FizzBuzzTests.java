@@ -10,8 +10,8 @@ public class FizzBuzzTests {
     @Test
     public void testFizzBuzz() {
         int fizzBuzzInput = 0;
-        String[] words = fizzBuzz(fizzBuzzInput, 10);
-        String[] expectedWords = { "1", "2", "Fizz", "4", "Buzz", "Fizz", "7", "8", "Fizz", "Buzz"};
+        String[] words = fizzBuzz(fizzBuzzInput, 15);
+        String[] expectedWords = { "1", "2", "Fizz", "4", "Buzz", "Fizz", "7", "8", "Fizz", "Buzz", "11", "Fizz", "Fizz", "14", "FizzBuzzBuzz"};
 
         assertArrayEquals(expectedWords, words);
     }

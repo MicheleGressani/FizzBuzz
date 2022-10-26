@@ -65,11 +65,13 @@ public class Fizzbuzz
 
             if(word.contains("3"))
             {
+                word="Fizz";
                 words[wordsCount] = word;
             }
 
             else if(word.contains("5"))
             {
+                word="Buzz";
                 words[wordsCount] = word;
             }
 
