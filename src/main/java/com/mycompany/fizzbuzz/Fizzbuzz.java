@@ -13,63 +13,119 @@ import java.util.*;
 public class Fizzbuzz
 {
 
-    public static void main(String[] args) 
+    public static void main(String[] args)
     {
-        Scanner tastiera= new Scanner(System.in);
-        
-        int numero;
-        String FizzBuzz;
-        
+        int number = askUserANumber();
+        String[] words = fizzBuzz(number, 100);
+        printToScreen(words);
+    }
+
+    private static int askUserANumber()
+    {
+        Scanner keyboard = new Scanner(System.in);
         System.out.print("Inserisci numero: ");
-        numero=tastiera.nextInt();
-        do
+        return keyboard.nextInt();
+    }
+
+    private static void printToScreen(String[] words)
+    {
+        for (String word : words)
+        {
+            System.out.println(word);
+        }
+    }
+
+    public static String[] fizzBuzz(int numero, int wordsMaxCount)
+    {
+        String[] words = new String[wordsMaxCount];
+
+        for (int i = 0; i < wordsMaxCount; i++)
         {
             numero++;
-            
-            String string;
-            string=""+numero;
-            
-                        
-            /*if(numero%3==0 && numero%5==0)
+            words[i] = fizzBuzzWord(numero);
+        }
+        return words;
+    }
+
+    public static String fizzBuzzWord(int numero)
+    {
+        String word = intToString(numero);
+
+        if(numero %3==0 && numero %5==0)
+        {
+            if(word.contains("3"))
             {
-                string="FizzBuzz";
-                System.out.println(string);
+                word="FizzFizzBuzz";
             }
-            
-            else if(numero%3==0 || numero%5==0)
+            else if(word.contains("5"))
             {
-                if(numero%3==0)
-                {
-                    string="Fizz";
-                    System.out.println(string);
-                }
-                
-                else if(numero%5==0)
-                {
-                    string="Buzz";
-                    System.out.println(string);
-                }
-            }*/
-            
-            if(string.contains("3"))
-            {
-                System.out.println("Fizz");
+                word="FizzBuzzBuzz";
             }
-            
-            else if(string.contains("5"))
-            {
-                System.out.println("Buzz");
-            }
-            
-            
             else
             {
-                System.out.println(numero);
+                word="FizzBuzz";
             }
-            
-        }while(numero<100);
-        
-        
-        
+        }
+
+        else if(numero %3==0 || numero %5==0)
+        {
+            if(numero %3==0)
+            {
+                if(word.contains("3"))
+                {
+                    word="FizzFizz";
+                }
+                else if(word.contains("5"))
+                {
+                    word="FizzBuzz";
+                }
+                else
+                {
+                    word="Fizz";
+                }
+            }
+            else if(numero %5==0)
+            {
+                if(word.contains("35"))
+                {
+                    word="FizzBuzzBuzz";
+                }
+                if(word.contains("5"))
+                {
+                    word="BuzzBuzz";
+                }
+                else if(word.contains("3"))
+                {
+                    word="FizzBuzzBuzz";
+                }
+                else
+                {
+                    word="Buzz";
+                }
+
+            }
+        }
+        if(word.contains("5") && word.contains("3"))
+        {
+            word="FizzBuzz";
+        }
+        else if(word.contains("5") || word.contains("3"))
+        {
+            if(word.contains("3"))
+            {
+                word="Fizz";
+            }
+            else if(word.contains("5"))
+            {
+                word="Buzz";
+            }
+        }
+
+        return word;
+    }
+
+    private static String intToString(int numero)
+    {
+        return Integer.toString(numero);
     }
 }
