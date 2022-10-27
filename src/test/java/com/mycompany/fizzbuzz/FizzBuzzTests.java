@@ -16,7 +16,7 @@ public class FizzBuzzTests
     public void testFizzBuzz() {
         int fizzBuzzInput = 0;
         String[] words = fizzBuzz(fizzBuzzInput, 15);
-        String[] expectedWords = { "1", "2", "FizzFizz", "4", "BuzzBuzz", "Fizz", "7", "8", "Fizz", "Buzz", "11", "Fizz", "Fizz", "14", "FizzBuzzBuzz"};
+        String[] expectedWords = { "1", "2", "Fizz", "4", "Buzz", "Fizz", "7", "8", "Fizz", "Buzz", "11", "Fizz", "Fizz", "14", "FizzBuzzBuzz"};
 
         assertArrayEquals(expectedWords, words);
     }
@@ -27,7 +27,12 @@ public class FizzBuzzTests
             "1,1",
             "3,Fizz",
             "5,Buzz",
-            "15,FizzBuzz",
+            "13,Fizz",
+            "15,FizzBuzzBuzz",
+            "30,FizzFizzBuzz",
+            "35,FizzBuzzBuzz",
+            "53,FizzBuzz",
+            "75,FizzBuzzBuzz",
 
 
     })

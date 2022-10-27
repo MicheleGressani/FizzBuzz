@@ -50,14 +50,43 @@ public class Fizzbuzz
     public static String fizzBuzzWord(int numero)
     {
         String word="";
-        if(numero%3==0)
+
+        if(numero<10)
         {
-            word+="Fizz";
+            if(numero%3==0)
+            {
+                word="Fizz";
+            }
+
+            if(numero%5==0)
+            {
+                word="Buzz";
+            }
         }
 
-        if(numero%5==0)
+        else
         {
-            word+="Buzz";
+            if(numero%3==0)
+            {
+                word+="Fizz";
+            }
+
+            if(numero%5==0)
+            {
+                word+="Buzz";
+            }
+
+            String numStr=intToString(numero);
+
+            if(numStr.contains("3"))
+            {
+                word="Fizz"+word;
+            }
+
+            if(numStr.contains("5"))
+            {
+                word+="Buzz";
+            }
         }
 
         if(word.isEmpty())
