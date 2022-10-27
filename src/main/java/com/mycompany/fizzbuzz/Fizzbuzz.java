@@ -23,7 +23,8 @@ public class Fizzbuzz
     private static int askUserANumber()
     {
         Scanner keyboard = new Scanner(System.in);
-        System.out.print("Inserisci numero: ");
+        System.out.println("ESERCIZIO FIZZBUZZ");
+        System.out.print("Inserisci numero tra 1 e 100: ");
         return keyboard.nextInt();
     }
 
@@ -50,43 +51,27 @@ public class Fizzbuzz
     public static String fizzBuzzWord(int numero)
     {
         String word="";
+        String numStr=intToString(numero);
 
-        if(numero<10)
+
+        if(numero%3==0)
         {
-            if(numero%3==0)
-            {
-                word="Fizz";
-            }
-
-            if(numero%5==0)
-            {
-                word="Buzz";
-            }
+            word+="Fizz";
         }
 
-        else
+        if(numStr.contains("3") && numero>=10)
         {
-            if(numero%3==0)
-            {
-                word+="Fizz";
-            }
+            word+="Fizz";
+        }
 
-            if(numero%5==0)
-            {
-                word+="Buzz";
-            }
+        if(numero%5==0)
+        {
+            word+="Buzz";
+        }
 
-            String numStr=intToString(numero);
-
-            if(numStr.contains("3"))
-            {
-                word="Fizz"+word;
-            }
-
-            if(numStr.contains("5"))
-            {
-                word+="Buzz";
-            }
+        if(numStr.contains("5") && numero>=10)
+        {
+            word+="Buzz";
         }
 
         if(word.isEmpty())
