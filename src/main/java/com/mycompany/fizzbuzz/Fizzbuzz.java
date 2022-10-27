@@ -49,76 +49,20 @@ public class Fizzbuzz
 
     public static String fizzBuzzWord(int numero)
     {
-        String word = intToString(numero);
-
-        if(numero %3==0 && numero %5==0)
+        String word="";
+        if(numero%3==0)
         {
-            if(word.contains("3"))
-            {
-                word="FizzFizzBuzz";
-            }
-            else if(word.contains("5"))
-            {
-                word="FizzBuzzBuzz";
-            }
-            else
-            {
-                word="FizzBuzz";
-            }
+            word+="Fizz";
         }
 
-        else if(numero %3==0 || numero %5==0)
+        if(numero%5==0)
         {
-            if(numero %3==0)
-            {
-                if(word.contains("3"))
-                {
-                    word="FizzFizz";
-                }
-                else if(word.contains("5"))
-                {
-                    word="FizzBuzz";
-                }
-                else
-                {
-                    word="Fizz";
-                }
-            }
-            else if(numero %5==0)
-            {
-                if(word.contains("35"))
-                {
-                    word="FizzBuzzBuzz";
-                }
-                if(word.contains("5"))
-                {
-                    word="BuzzBuzz";
-                }
-                else if(word.contains("3"))
-                {
-                    word="FizzBuzzBuzz";
-                }
-                else
-                {
-                    word="Buzz";
-                }
+            word+="Buzz";
+        }
 
-            }
-        }
-        if(word.contains("5") && word.contains("3"))
+        if(word.isEmpty())
         {
-            word="FizzBuzz";
-        }
-        else if(word.contains("5") || word.contains("3"))
-        {
-            if(word.contains("3"))
-            {
-                word="Fizz";
-            }
-            else if(word.contains("5"))
-            {
-                word="Buzz";
-            }
+            return intToString(numero);
         }
 
         return word;

@@ -25,16 +25,11 @@ public class FizzBuzzTests
     @CsvSource
     ({
             "1,1",
-            "3,FizzFizz",
-            "5,BuzzBuzz",
-            "6,Fizz",
-            "10,Buzz",
-            "13,Fizz",
-            "60,FizzBuzz",
-            "15,FizzBuzzBuzz",
-            "55,BuzzBuzz",
-            "53,FizzBuzz",
-            "35,FizzBuzzBuzz",
+            "3,Fizz",
+            "5,Buzz",
+            "15,FizzBuzz",
+
+
     })
     void testFizzBuzzWord(int number, String expectedWord)
     {
