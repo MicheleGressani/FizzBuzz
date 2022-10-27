@@ -16,15 +16,23 @@ public class Fizzbuzz
     public static void main(String[] args)
     {
         int number = askUserANumber();
-        String[] words = fizzBuzz(number, 100);
-        printToScreen(words);
+        if(number>100)
+        {
+            System.out.println("ERRORE! Hai inserito un numero maggiore di quello richiesto, riprova!");
+        }
+        else
+        {
+            String[] words = fizzBuzz(number, 100);
+            printToScreen(words);
+        }
+
     }
 
     private static int askUserANumber()
     {
         Scanner keyboard = new Scanner(System.in);
         System.out.println("ESERCIZIO FIZZBUZZ");
-        System.out.print("Inserisci numero tra 1 e 100: ");
+        System.out.print("Inserisci un numero tra 1 e 100: ");
         return keyboard.nextInt();
     }
 
@@ -59,7 +67,7 @@ public class Fizzbuzz
             word+="Fizz";
         }
 
-        if(numStr.contains("3") && numero>=10)
+        if(numStr.contains("3") && singleDigitLimit(numero))
         {
             word+="Fizz";
         }
@@ -69,7 +77,7 @@ public class Fizzbuzz
             word+="Buzz";
         }
 
-        if(numStr.contains("5") && numero>=10)
+        if(numStr.contains("5") && singleDigitLimit(numero))
         {
             word+="Buzz";
         }
@@ -80,6 +88,11 @@ public class Fizzbuzz
         }
 
         return word;
+    }
+
+    private static boolean singleDigitLimit(int numero)
+    {
+        return numero >= 10;
     }
 
     private static String intToString(int numero)
