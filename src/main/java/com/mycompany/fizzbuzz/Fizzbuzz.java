@@ -25,7 +25,6 @@ public class Fizzbuzz
             String[] words = fizzBuzz(number, 100);
             printToScreen(words);
         }
-
     }
 
     private static int askUserANumber()
@@ -40,7 +39,14 @@ public class Fizzbuzz
     {
         for (String word : words)
         {
-            System.out.println(word);
+            if(word==null)
+            {
+                System.out.println("");
+            }
+            else
+            {
+                System.out.println(word);
+            }
         }
     }
 
@@ -48,46 +54,45 @@ public class Fizzbuzz
     {
         String[] words = new String[wordsMaxCount];
 
-        for (int i = 0; i < wordsMaxCount; i++)
+        for (int i = 0; i < wordsMaxCount && numero < wordsMaxCount; i++)
         {
-            numero++;
-            words[i] = fizzBuzzWord(numero);
+                numero++;
+                words[i] = fizzBuzzWord(numero);
         }
         return words;
     }
 
     public static String fizzBuzzWord(int numero)
     {
-        String word="";
-        String numStr=intToString(numero);
+            String word="";
+            String numStr=intToString(numero);
 
+            if(numero%3==0)
+            {
+                word+="Fizz";
+            }
 
-        if(numero%3==0)
-        {
-            word+="Fizz";
-        }
+            if(numStr.contains("3") && singleDigitLimit(numero))
+            {
+                word+="Fizz";
+            }
 
-        if(numStr.contains("3") && singleDigitLimit(numero))
-        {
-            word+="Fizz";
-        }
+            if(numero%5==0)
+            {
+                word+="Buzz";
+            }
 
-        if(numero%5==0)
-        {
-            word+="Buzz";
-        }
+            if(numStr.contains("5") && singleDigitLimit(numero))
+            {
+                word+="Buzz";
+            }
 
-        if(numStr.contains("5") && singleDigitLimit(numero))
-        {
-            word+="Buzz";
-        }
+            if(word.isEmpty())
+            {
+                return intToString(numero);
+            }
 
-        if(word.isEmpty())
-        {
-            return intToString(numero);
-        }
-
-        return word;
+            return word;
     }
 
     private static boolean singleDigitLimit(int numero)
